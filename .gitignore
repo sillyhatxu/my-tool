@@ -17,6 +17,6 @@
 .idea/
 .env
 logs/
-
+*.txt
 vendor/
 sillyhat-env-config/
