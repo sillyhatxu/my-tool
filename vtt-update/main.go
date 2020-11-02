@@ -87,6 +87,7 @@ func replaceFile(filePath string, fileName string) {
 		content := scanner.Text()
 		content = strings.ReplaceAll(content, "WEBVTT", "")
 		content = strings.ReplaceAll(content, "<v Instructor>", "")
+		content = strings.ReplaceAll(content, "<v ->", "")
 		content = strings.ReplaceAll(content, "</v>", "")
 		if isNumber(content) {
 			continue
@@ -115,7 +116,7 @@ func main() {
 	files, _ := ioutil.ReadDir(currentFolder)
 	for _, f := range files {
 		fileName := f.Name()
-		if fileName == "main.go" {
+		if fileName == "main.go" || fileName == "backups" {
 			continue
 		}
 		replaceFile(currentFolder, fileName)
